@@ -1,4 +1,6 @@
-const API_KEY = process.env.REACT_APP_api_key;//getting api key from env file
+// const API_KEY = process.env.REACT_APP_api_key; //getting api key from env file
+
+const API_KEY = import.meta.env.VITE_API_KEY; //getting api key from env file
 
 //object containing all the requests we will make to the api
 const Requests = {
