@@ -18,7 +18,7 @@
 /* Inner container */
 .header_container {
   width: 100%;
-  max-width: 1200px; /* keeps content centered and not too wide */
+  /*max-width: 1200px;*/ /* keeps content centered and not too wide */
   display: flex;
   align-items: center;
   justify-content: space-between; /* left group and right group on edges */
@@ -49,10 +49,18 @@
   color: #ffffff;
 }
 
+/* .header_right {
+  display: flex;
+  justify-content: flex-end;
+  flex: 1;
+} */
+
 .header_right ul {
   display: flex;
-  justify-content: right;
-  align-items: right;
+  justify-content: flex-end;
+  align-items: center;
   list-style: none;
   gap: 10px;
+  margin: 0;
+  padding: 0;
 }
