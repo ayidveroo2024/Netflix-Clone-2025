@@ -4,5 +4,5 @@ import react from "@vitejs/plugin-react-swc";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: "/Netflix-Clone-Rev", // Add this line to set the base path
+  base: "/Netflix-Clone-Rev/", // Add this line to set the base path
 });
