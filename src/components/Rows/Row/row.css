@@ -1,0 +1,135 @@
+:root {
+  /* --row-bg: #111; */
+  --title-color: #e5e5e5;
+  --poster-gap: 10px;
+  --poster-border-radius: 4px;
+  --poster-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+}
+
+/* Container for the whole row */
+.row {
+  color: var(--title-color);
+  margin-left: 20px;
+  margin-right: 20px;
+  background: transparent;
+}
+
+/* Title text */
+.row > h1 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 12px 0;
+  letter-spacing: 0.2px;
+  color: var(--title-color);
+}
+
+/* Posters container: horizontal scroll, snap-ish feel */
+.row_posters {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 8px 4px;
+  gap: var(--poster-gap);
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  align-items: flex-end;
+}
+
+/* Hide scrollbars but keep scrollability */
+.row_posters::-webkit-scrollbar {
+  height: 8px;
+}
+.row_posters::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+}
+.row_posters::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Individual poster style (default - small row) */
+.row_poster {
+  max-height: 140px; /* small row height */
+  min-width: 100px; /* ensure a consistent width */
+  object-fit: cover;
+  border-radius: var(--poster-border-radius);
+  transition: transform 250ms ease, opacity 200ms ease, box-shadow 250ms ease;
+  box-shadow: var(--poster-shadow);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
+  flex-shrink: 0; /* don't shrink below natural width */
+}
+
+/* Larger variant (for the featured / large row) */
+.row_posterLarge {
+  max-height: 240px; /* Netflix-like tall poster */
+  min-width: 160px;
+  border-radius: 6px;
+}
+
+/* Hover behaviours */
+.row_poster:hover {
+  transform: scale(1.06) translateY(-6px);
+  z-index: 2;
+  opacity: 1;
+}
+
+/* Stronger hover for large posters */
+.row_posterLarge:hover {
+  transform: scale(1.12) translateY(-12px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+}
+
+/* If an image has no src or is broken, show a neutral placeholder look */
+.row_poster:empty,
+.row_poster[alt=""] {
+  background: linear-gradient(180deg, #222, #111);
+  display: inline-block;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .row > h1 {
+    font-size: 1.1rem;
+    margin-left: 4px;
+  }
+  .row_poster {
+    max-height: 110px;
+    min-width: 88px;
+  }
+  .row_posterLarge {
+    max-height: 180px;
+    min-width: 120px;
+  }
+  .row {
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+}
+
+/* Accessibility: focus state for keyboard users */
+.row_poster:focus {
+  outline: 3px solid rgba(255, 255, 255, 0.12);
+  transform: scale(1.06) translateY(-6px);
+}
+
+/* Optional: add a subtle fade gradient to the ends to mimic Netflix look */
+.row:after,
+.row:before {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 100%;
+  top: 0;
+  z-index: 4;
+}
+.row:before {
+  left: 0;
+  background: linear-gradient(90deg, var(--row-bg), rgba(0, 0, 0, 0));
+}
+.row:after {
+  right: 0;
+  background: linear-gradient(-90deg, var(--row-bg), rgba(0, 0, 0, 0));
+}

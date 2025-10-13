@@ -1,0 +1,213 @@
+Setp-1
+
+   Create a new repository on GitHub
+     -Sign in to your account
+     -Create new repository called Netfilix-clone-2025
+     -
+
+  Create a folder called Phase4 on the computer
+  -Clone the Netflex-clone-2025 project
+    -Bring the created folder from GitHub to your created folder on computer
+    -Open Phase4 folder using integrated terminal
+    -Open gitbash window using Ctrl + `
+    -Copy the link provide by GitHub that leads you to the Netflix-clone-2025 project
+    -Make sure you are on the right folder (Phase4) before running git clone
+    -Write git clone on git bash and paste the link you copied and run:-
+      On intergrated terminal/ git bash. Them it will clone (bring project from 
+        GitHub (Netflix-clone-2025) to your computer (Phase4).   
+         git clone https://github.com/ayidveroo2024/Netflix-Clone-2025.git
+    - Get into the Netflex-clone-2025 on your intergrated terminal
+         cd Netflix-clone-2025
+
+    -Initializing git tracker
+       -By default the folder has been initialized if we see (main) on terminal or
+       -we can check if git tracker file has been created or not by running 
+          ls -al then you will see all the files inside the folder including
+            .git/ this file shows it has been initialized.
+    -After cloning the project if you see (master) on terminal then run
+      --git branch -M main  : which rename (master) inot (main)
+      --However if it is already (main) no need to run it.
+    -Now connect the remote folder (Netflix-Github) with the local folder (Netflix-Computer)
+      -By default when we clone folder from GitHub then it is automatically connected with computer.
+      -However, if we want to connect unconnected project the use the following code
+        git remote add origin https://github.com/ayidveroo2024/Netflix-Clone-2025.git
+   REACT
+    -Create new Vite + React project. Run the following
+      npm create vite@latest netflix-clone --- when enter the option will pop up choose 
+          React and Javascript + swp and run --- will create React folder inside the new folder "netflix-clone"
+    -Install modules by running
+       npm install --- will add node_modules folder
+    -Make some cleaning such as : Remove logo and other items added by react
+    -Now you see U infront of every folder meaning untrack.
+    -Now add all untrack files by running 
+        git add .  --- will change all the untrack files into Added
+  First Commit
+    -Now do commit
+    - Run the following
+            git commit -m "First-commit"
+    - Now Push all the added file into GitHub: Run the following
+           git push   OR
+           git push -u origin main
+        
+    -Creating Header and footer sections
+     --Create a folder called pages inside src folder and then inside 
+          create folder called Home then create Home.jsx inside
+          create functional component using rafce
+     --This folder will render Header and Footer
+       Create folder called components inside src
+         --Create Header Folder and then create Header.jsx
+             --prepare jsx/ html inside the Header.jsx
+             --Prepate the Netflix logo placeholder to add the img later
+         --Create Footer Folder and then create Footer.jsx in the same folder
+         --Create functional component in each JSX files
+         --add <Header/> and <Footer/> under return of Home.jsx and import both 
+            inside Home.jsx 
+     -Create image folder inside asset folder
+        --download netflex logo and save it inside image folder
+        --
+     -Create header.css file inside Header folder and write the css based on the 
+       html added inside return of Header.jsx
+     --Adding other Icons (Search, notification, ...)
+         -Will be added from Material Icon
+            --Search Material Iocn on Chrome.
+            --And cop "npm install @mui/icons-material @mui/material @emotion/styled @emotion/react
+            --run the above on integrated terminal to download MaterialIocn
+            --Check if it is downloaded on package.json then you will see the ff
+
+                "@emotion/react": "^11.14.0",
+    		"@emotion/styled": "^11.14.1",
+    		"@mui/icons-material": "^7.3.2",
+    		"@mui/material": "^7.3.2",
+           --Search the icons(search.) you want to donload from MaterialIcon webpage
+                https://mui.com/material-ui/material-icons
+           --Copy the link for every icon and paste it while importing it on Header.jsx or
+           --Just import every Icon after installing the MaterialIcons
+      -Push the file into GitHub
+
+         --git add .
+         --git commit -m "header icons"
+         --git push
+
+
+Footer
+  --Create footer folder and footer jsx 
+  --Use the same procedure as we used above
+
+NEXT STEP
+
+Adding contents : Videos, Imgaes and others
+
+
+   -Create an account to generate API key to get contents:
+    
+       https://www.themoviedb.org/u/Ayidagn
+        --Username: Ayidagn
+        --Password: ThemoviedbMariabGeorgis%
+        --Emailused:stop47ay...
+   -Once creating an account, click on Setting and then click on API to extract z ff
+      
+     --Token
+      eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNjk0Nzk4YWRhOTE3MDhiNWI5MzRlNzI0NWUxN2FhNiIsIm5iZiI6MTc1NzE5ODU1NS4zNTEsInN1YiI6IjY4YmNiOGRiZWZhOTZmYzdmNzFmNGRmNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.HwqtzB-vT-ZZ7uAsaSM3gGrSIAYVXk2dr2zGaT17W8w
+
+   --API key
+       2694798ada91708b5b934e7245e17aa6
+   -- Documentations will find on this
+        https://developer.themoviedb.org/reference/intro/getting-started
+    
+
+      Testing 
+
+https://image.tmdb.org/t/p/w500/uBB1aMga5ngZxsUQL5k36zeW3pB.jpg
+
+
+
+
+NEXT STEP
+
+  Get API key and movies endpoint from RMDB
+
+   -Once an account has been created on the movie databse.com website and copied the API key, now create A folder called "utlis " under src
+     -- Create two modules called axion.jsx and request.jsx inside the utils folder and write the following in each modules.
+     -- axion.jsx
+          import axios from "axios"; //axios used for fetching data from api
+
+             //creating an instance of axios with a base url
+
+              const instance = axios.create({
+                    baseURL: "https://api.themoviedb.org/3", //this is the base url of every moview in the api
+                         });
+
+                    export default instance;
+
+     --request.jsx
+
+          const API_KEY = "2694798ada91708b5b934e7245e17aa6";// However, to hid the API key we can use he following inside .env file (should be created) & requests.jsx 
+                         
+
+              //object containing all the requests we will make to the api
+                 const Requests = {
+                     fetchTrending: `/trending/all/week?api_key=${API_KEY}&language=en-US`,
+                     fetchNetflixOriginals: `/discover/tv?api_key=${API_KEY}&with_networks=213`, //213 is the network id for netflix
+                     fetchTopRatedMovies: `/movie/top_rated?api_key=${API_KEY}&language=en-US`,
+                     fetchActionMovies: `/discover/movie?api_key=${API_KEY}&with_genres=28`, //28 is the genre id for action movies};
+                     fetchComedyMovies: `/discover/movie?api_key=${API_KEY}&with_genres=35`, //35 is the genre id for comedy movies
+                     fetchHorrorMovies: `/discover/movie?api_key=${API_KEY}&with_genres=27`, //27 is the genre id for horror movies
+                     fetchRomanceMovies: `/discover/movie?api_key=${API_KEY}&with_genres=10749`, //10749 is the genre id for romance movies
+                     fetchDocumentaries: `/discover/movie?api_key=${API_KEY}&with_genres=99`, //99 is the genre id for documentaries
+                     fetchSciFiMovies: `/discover/movie?api_key=${API_KEY}&with_genres=878`, //878 is the genre id for sci-fi movies
+                     fetchTvShows: `/tv/popular?api_key=${API_KEY}&language=en-US`,
+                         };
+                       export default Requests;
+        
+
+        Hiding the API key use the ff instead of putting the API key directly to the request.jsx
+   
+            -Create a file called .env (Select the .gitignore file and click create a file icon on top then a file will be added next to gitignor then type .env
+              -- inside .env, type : REACT_APP_api_key=2694798ada91708b5b934e7245e17aa6
+              -- Add the .env file inside the .gitignor file so that the API key will not be pushed to GitHub while pushing the project
+            -Now Under requests.jsx file, rewrite the script like the following
+                        
+                --const API_KEY = process.env.REACT_APP_api_key // insidead of   const API_KEY = "2694798ada91708b5b934e7245e17aa6" then the rest will be the same.                              
+      
+      
+NEXT STEP
+  Testing 
+  Checking is the API is working
+
+          Copy the baseURL from axion.jsx: https://api.themoviedb.org/3
+          Copy the link in request.jsx to one of the movie types. Example Romance : discover/movie?api_key=${API_KEY}&with_genres=10749
+          Copy the API key: 2694798ada91708b5b934e7245e17aa6 // this will replace ${API_KEY} from above
+
+   Now merge all the three above and paste it on URL and click Enter to see the result
+         https://api.themoviedb.org/3/discover/movie?api_key=2694798ada91708b5b934e7245e17aa6&with_genres=10749 
+   If a json file is seen on he browser with different contents then it is working.
+
+    Testing if images can be imported using baseURL
+       https://image.tmdb.org/t/p/w500/uBB1aMga5ngZxsUQL5k36zeW3pB.jpg
+
+
+
+NOTE  - TAKE AWAY MESSAGE
+
+
+
+
+Create React App (CRA) → only recognizes env vars that start with REACT_APP_.
+
+Vite → only recognizes env vars that start with VITE_.
+
+So in your project (which is Vite), you cannot use process.env.REACT_APP_.... That’s CRA-specific.
+Vite’s bundler will never replace REACT_APP_ variables, which is why you kept seeing process is not defined.
+
+⚡ Your options
+
+If you want to keep using Vite (recommended — it’s faster & modern):
+You must rename your variable to VITE_API_KEY and use import.meta.env.VITE_API_KEY.
+👉 Vite has no option to make REACT_APP_ work.
+
+If you really want to keep REACT_APP_ syntax:
+You’d have to migrate back to Create React App instead of Vite. CRA is the only toolchain that supports REACT_APP_.
+
+Downside: CRA is slower and no longer the default recommendation by React docs.
+
+       

@@ -1,0 +1,22 @@
+/* Import Google Fonts */
+
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;700&display=swap");
+
+/* Now use them */
+root {
+  --font-base: "Roboto", sans-serif;
+  --font-second-base: "Bebas Neue", cursive;
+  --bg-color: black;
+  --primary-color: #ffffff;
+  --secondary-color: #e5091e;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #111;
+}
